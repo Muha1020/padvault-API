@@ -1,0 +1,31 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Subscription Renewal.</div>
+
+<p class="p">Hello {{ user.firstname|default:"Landlord" }},</p>
+<p class="p">Your premium access to Padvault’s wealth-building tools is reaching its renewal date in <strong>3 days</strong> ({{ expires_at|date:"F j, Y" }}).</p>
+
+<p class="p">Maintain your momentum in property management and ensure uninterrupted access to automated invoicing, premium analytics, and priority support by renewing your plan.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Renewal Reference</span>
+        <span class="card-value">{{ invoice.invoice_number }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Premium Fee</span>
+        <span class="card-value">₦{{ invoice.total }}</span>
+    </div>
+</div>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ payment_link }}" class="btn">Maintain Premium Access</a>
+    </center>
+</div>
+
+<p class="p" style="font-size: 13px;">If you have any questions, simply reply directly to this message for assistance.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

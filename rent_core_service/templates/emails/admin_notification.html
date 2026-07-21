@@ -1,0 +1,15 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<p class="h1">{{ title }}</p>
+
+<p class="p">Hi {{ name }},</p>
+
+<div class="card" style="border-left: 4px solid #0f2347;">
+    <p style="font-size: 15px; color: #0f172a; margin: 0; line-height: 1.7; white-space: pre-wrap;">{{ message }}</p>
+</div>
+
+<p class="p">If you have any questions, please reach out via our <a href="https://padvault.io/contact" style="color: #0f2347; font-weight: 700;">contact page</a>.</p>
+
+<p class="p">— The Padvault Team</p>
+{% endblock %}

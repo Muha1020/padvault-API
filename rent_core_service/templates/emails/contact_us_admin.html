@@ -1,0 +1,32 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Incoming Concierge Inquiry.</div>
+
+<p class="p">A new inquiry has been submitted through the Padvault contact network.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Originator</span>
+        <span class="card-value">{{ name }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Digital Address</span>
+        <span class="card-value"><a href="mailto:{{ email }}" style="color: #1a3a6b;">{{ email }}</a></span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Subject</span>
+        <span class="card-value">{{ subject }}</span>
+    </div>
+</div>
+
+<div class="card" style="background-color: #ffffff; border-left: 4px solid #0f2347;">
+    <p class="p" style="margin: 0; white-space: pre-wrap; font-style: italic;">"{{ message }}"</p>
+</div>
+
+<div class="btn-container">
+    <center>
+        <a href="mailto:{{ email }}" class="btn">Respond to Inquiry</a>
+    </center>
+</div>
+{% endblock %}

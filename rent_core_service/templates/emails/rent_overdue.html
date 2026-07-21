@@ -1,0 +1,35 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Overdue Rent Payment.</div>
+
+<p class="p">Hello {{ tenant_name|default:"Tenant" }},</p>
+<p class="p">This is an urgent notice that your rent payment is now overdue. Please arrange payment as soon as possible to avoid further action.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Property</span>
+        <span class="card-value">{{ property_title }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Amount Overdue</span>
+        <span class="card-value" style="color: #dc2626;">₦{{ amount_due|floatformat:2 }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Days Overdue</span>
+        <span class="card-value" style="color: #dc2626;">{{ days_overdue }} day{{ days_overdue|pluralize }}</span>
+    </div>
+</div>
+
+<p class="p">Please log in to your payment portal to settle this outstanding balance immediately. Continued non-payment may result in further action from your landlord.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/dashboard/rent" class="btn" style="background-color: #dc2626;">Pay Now</a>
+    </center>
+</div>
+
+<p class="p">If you have already made this payment, please disregard this notice or contact support.</p>
+
+<p class="p">Regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Maintain your Momentum.</div>
+
+<p class="p">Hello {{ user.firstname|default:"Landlord" }},</p>
+<p class="p"><strong>Urgent Notice:</strong> Your Padvault Premium suite is scheduled to expire in exactly <strong>24 hours</strong> ({{ expires_at|date:"F j, Y, P" }}).</p>
+
+<p class="p">Do not let your property automation pause. Renew your subscription immediately to ensure your listings remain active and your dashboard remains fully operational.</p>
+
+<div class="card" style="border-left: 4px solid #dc2626;">
+    <div class="card-row">
+        <span class="card-label">Invoice Reference</span>
+        <span class="card-value">{{ invoice.invoice_number }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Amount Due</span>
+        <span class="card-value">₦{{ invoice.total }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Critical Window</span>
+        <span class="card-value" style="color: #dc2626;">&lt; 24 Hours</span>
+    </div>
+</div>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ payment_link }}" class="btn" style="background-color: #dc2626;">Renew Now Before Expiry</a>
+    </center>
+</div>
+
+<p class="p">Failure to renew within this window will initiate a limited grace period before premium assets are restricted.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

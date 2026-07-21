@@ -1,0 +1,41 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">New Application.</div>
+
+<p class="p">Hello {{ landlord_name|default:"Landlord" }},</p>
+<p class="p">A prospective tenant has submitted a rental application for one of your properties. Review the details below and take action from your dashboard.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Property</span>
+        <span class="card-value">{{ property_title }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Applicant</span>
+        <span class="card-value">{{ applicant_name }}</span>
+    </div>
+    {% if proposed_amount %}
+    <div class="card-row">
+        <span class="card-label">Proposed Rent</span>
+        <span class="card-value">₦{{ proposed_amount }}</span>
+    </div>
+    {% endif %}
+    {% if message %}
+    <div class="card-row">
+        <span class="card-label">Message from Applicant</span>
+        <span class="card-value" style="font-size: 14px; font-weight: 500; color: #475569;">{{ message }}</span>
+    </div>
+    {% endif %}
+</div>
+
+<p class="p">Log in to your dashboard to approve or decline this application. If approved, a lease will be generated and sent to the applicant for digital signature.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ dashboard_link }}" class="btn">Review Application</a>
+    </center>
+</div>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

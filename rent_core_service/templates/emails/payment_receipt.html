@@ -1,0 +1,33 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Payment Reconciled.</div>
+
+<p class="p">Hello {{ tenant_name|default:"User" }},</p>
+<p class="p">Your recent payment has been successfully processed and reconciled within the Padvault ledger. This receipt serves as your official record of transaction.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Official Reference</span>
+        <span class="card-value">{{ transaction.reference }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Amount Secured</span>
+        <span class="card-value" style="color: #059669;">₦{{ transaction.amount }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Effective Date</span>
+        <span class="card-value">{{ transaction.created_at|date:"F j, Y" }}</span>
+    </div>
+</div>
+
+<p class="p">Thank you for your continued reliability. Your full portfolio transaction history is available for review within your dashboard.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/login" class="btn">View Portfolio Ledger</a>
+    </center>
+</div>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

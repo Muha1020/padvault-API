@@ -1,0 +1,16 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Verify your Identity.</div>
+
+<p class="p">Hello {{ name|default:"User" }},</p>
+<p class="p">To maintain the high-security standards of the Padvault network, please verify your email address using the secure code below:</p>
+
+<div class="otp-box">
+    <div class="otp-code">{{ otp_code }}</div>
+</div>
+
+<p class="p">This code is valid for the next <strong>15 minutes</strong>. If you did not initiate this request, please disregard this message; no changes will be applied to your account.</p>
+
+<p class="p">Maintain your momentum,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

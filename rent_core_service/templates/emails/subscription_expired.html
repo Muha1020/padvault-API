@@ -1,0 +1,20 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Subscription Expired.</div>
+
+<p class="p">Hello {{ user.firstname|default:"Landlord" }},</p>
+<p class="p">Your Padvault Premium subscription has reached its term. Your account has now entered a <strong>3-day grace period</strong>.</p>
+
+<p class="p">During this window, your properties remain visible to the network. However, if renewal is not finalized by {{ downgrade_date|date:"F j, Y" }}, your account will be automatically transitioned to the Free tier, and listings beyond the 5-unit limit will be hidden.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ payment_link }}" class="btn">Restore Premium Suite</a>
+    </center>
+</div>
+
+<p class="p">Continue unlocking real estate wealth with Padvault.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<p class="h1">We've responded to your message.</p>
+
+<p class="p">Hi {{ name }},</p>
+
+<p class="p">Thank you for reaching out to Padvault. Our support team has reviewed your enquiry and responded below.</p>
+
+<div class="card" style="border-left: 4px solid #0f2347;">
+    <span class="card-label">Our Response</span>
+    <p style="font-size: 15px; color: #0f172a; margin: 12px 0 0; line-height: 1.7; white-space: pre-wrap;">{{ reply_body }}</p>
+</div>
+
+<p class="p" style="font-size: 13px; color: #94a3b8; margin-top: 32px; border-top: 1px solid #f1f5f9; padding-top: 24px;">
+    <strong style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 8px;">Your Original Message</strong>
+    {{ original_message }}
+</p>
+
+<p class="p">If you have further questions, you're welcome to reply directly to this email or submit a new message via our contact page.</p>
+
+<p class="p">— The Padvault Support Team</p>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Application Received.</div>
+
+<p class="p">Hello {{ applicant_name|default:"Applicant" }},</p>
+<p class="p">Your rental application has been successfully submitted and logged within the Padvault system. The landlord has been notified and will review your application shortly.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Property Applied For</span>
+        <span class="card-value">{{ property_title }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Application Status</span>
+        <span class="card-value" style="color: #d97706;">Pending Review</span>
+    </div>
+</div>
+
+<p class="p">You will be notified at this email address once the landlord reviews your application. In the meantime, you can explore more available properties on the Padvault marketplace.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/properties" class="btn">Browse More Properties</a>
+    </center>
+</div>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

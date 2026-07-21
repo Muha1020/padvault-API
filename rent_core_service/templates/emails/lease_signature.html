@@ -1,0 +1,22 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Sign Your Lease Agreement</div>
+
+<p class="p">Hello {{ tenant_name }},</p>
+
+<p class="p">The tenancy agreement for your upcoming stay at <strong>{{ property_title }}</strong> is now ready for your review and signature.</p>
+
+<p class="p">Please click the button below to review the standard terms and securely sign the document digitally. Once you've signed, you'll be automatically directed to pay your initial rent invoice.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ sign_link }}" class="btn">Review and Sign Lease</a>
+    </center>
+</div>
+
+<p class="p">If the button above does not work, you can copy and paste the following link into your browser:</p>
+<p class="p" style="word-break: break-all;"><a href="{{ sign_link }}" style="color: #0f2347;">{{ sign_link }}</a></p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

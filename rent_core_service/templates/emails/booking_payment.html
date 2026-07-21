@@ -1,0 +1,33 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Reservation Pending.</div>
+
+<p class="p">Hello {{ tenant_name|default:"Guest" }},</p>
+<p class="p">A reservation request for your stay at <span class="highlight">{{ property_title }}</span> has been registered. To secure your desired dates and finalize the booking, please complete the reservation fee payment below.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Booking Reference</span>
+        <span class="card-value">{{ invoice.booking.booking_reference|default:invoice.invoice_number }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Property</span>
+        <span class="card-value">{{ property_title }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Security Deposit + Stay</span>
+        <span class="card-value" style="color: #0f2347; font-size: 18px;">₦{{ invoice.total }}</span>
+    </div>
+</div>
+
+<p class="p">Payment through our high-security portal will instantly confirm your stay and lock the calendar for other guests.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ payment_link }}" class="btn">Secure Reservation</a>
+    </center>
+</div>
+
+<p class="p">We look forward to hosting your stay.<br><strong>The Padvault Team</strong></p>
+{% endblock %}

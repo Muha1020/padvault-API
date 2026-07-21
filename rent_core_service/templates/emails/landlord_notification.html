@@ -1,0 +1,33 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Revenue Alert.</div>
+
+<p class="p">Hello {{ landlord.firstname|default:"Landlord" }},</p>
+<p class="p">We are pleased to inform you that a payment has been successfully assigned to your portfolio. The funds are currently being reconciled and will reflect in your payout balance according to your settlement schedule.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Transaction Reference</span>
+        <span class="card-value">{{ transaction.reference }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Net Portfolio Inflow</span>
+        <span class="card-value" style="color: #059669; font-size: 18px;">₦{{ transaction.net_amount|default:transaction.amount }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Associated Payer</span>
+        <span class="card-value">{{ transaction.payer.email }}</span>
+    </div>
+</div>
+
+<p class="p">Your dashboard has been updated with these figures. Monitor your wealth growth in real-time by reviewing your portfolio.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/login" class="btn">Review Portfolio</a>
+    </center>
+</div>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Application Update.</div>
+
+<p class="p">Hello {{ applicant_name|default:"Applicant" }},</p>
+<p class="p">Thank you for your interest in renting on Padvault. Unfortunately, after careful review, the landlord has decided not to proceed with your application for the property listed below.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Property</span>
+        <span class="card-value">{{ property_title }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Application Status</span>
+        <span class="card-value" style="color: #dc2626;">Not Approved</span>
+    </div>
+    {% if reason %}
+    <div class="card-row">
+        <span class="card-label">Reason</span>
+        <span class="card-value" style="color: #475569;">{{ reason }}</span>
+    </div>
+    {% endif %}
+</div>
+
+<p class="p">Don't be discouraged — there are many more properties available on the Padvault marketplace. We encourage you to browse and apply for others that match your needs.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/properties" class="btn">Browse Available Properties</a>
+    </center>
+</div>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

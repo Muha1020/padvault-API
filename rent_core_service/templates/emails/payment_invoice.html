@@ -1,0 +1,39 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">New Rent Invoice.</div>
+
+<p class="p">Hello {{ tenant_name|default:"Tenant" }},</p>
+<p class="p">A new rent invoice has been prepared for your residence at <span class="highlight">{{ property_title }}</span>. Maintaining your account in good standing ensures uninterrupted access to your home and the Padvault premium ecosystem.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Invoice Reference</span>
+        <span class="card-value">{{ invoice.invoice_number }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Residence</span>
+        <span class="card-value">{{ property_title }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Total Amount</span>
+        <span class="card-value" style="color: #0f2347; font-size: 18px;">₦{{ invoice.total }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Final Due Date</span>
+        <span class="card-value">{{ invoice.due_date|date:"F j, Y" }}</span>
+    </div>
+</div>
+
+<p class="p">Please finalize your payment through our secure gateway to fulfill your lease obligations.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ payment_link }}" class="btn">Finalize Payment</a>
+    </center>
+</div>
+
+<p class="p" style="font-size: 13px; font-weight: 600;">For any inquiries regarding these charges, please reach out directly to your landlord for immediate resolution.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

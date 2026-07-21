@@ -1,0 +1,31 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Rent Due in 3 Days.</div>
+
+<p class="p">Hello {{ tenant_name|default:"Tenant" }},</p>
+<p class="p">This is a friendly reminder that your upcoming rent payment is due in <strong>3 days</strong>. Please ensure your payment is made on time to avoid any late charges.</p>
+
+<div class="card">
+    <div class="card-row">
+        <span class="card-label">Property</span>
+        <span class="card-value">{{ property_title }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Amount Due</span>
+        <span class="card-value">₦{{ amount_due|floatformat:2 }}</span>
+    </div>
+    <div class="card-row">
+        <span class="card-label">Due Date</span>
+        <span class="card-value" style="color: #d97706;">{{ due_date }}</span>
+    </div>
+</div>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/dashboard/rent" class="btn">View Payment Details</a>
+    </center>
+</div>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

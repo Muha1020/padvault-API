@@ -1,0 +1,19 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Welcome to the Portfolio, {{ user.firstname|default:"Landlord" }}.</div>
+
+<p class="p">We are delighted to have you join Padvault. You’ve taken a significant step toward modernizing your property management and securing your financial future.</p>
+
+<p class="p">Your dashboard is ready. You can now begin listing properties, automating your lease agreements, and tracking your wealth in real-time.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/login" class="btn">Enter Your Dashboard</a>
+    </center>
+</div>
+
+<p class="p" style="font-size: 13px; font-weight: 600;">The Padvault team is committed to your success. If you require a personalized walkthrough, simply reach out to our concierge team.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Premium Suite Activated.</div>
+
+<p class="p">Hello {{ user.firstname|default:user.email }},</p>
+<p class="p">Your subscription to the {{ plan_name|default:"Premium" }} tier has been successfully confirmed. You have unlocked the full power of Padvault’s property management and wealth-tracking tools.</p>
+
+<div class="card">
+    <p class="p" style="margin: 0; font-weight: 700;">What’s now active in your portfolio:</p>
+    <ul style="font-size: 13px; color: #475569; margin-top: 10px; padding-left: 20px;">
+        <li>Unlimited Property Listings</li>
+        <li>Automated Premium Invoicing</li>
+        <li>Advanced Portfolio Analytics</li>
+        <li>Priority Concierge Support</li>
+    </ul>
+</div>
+
+<div class="btn-container">
+    <center>
+        <a href="https://padvault.io/dashboard" class="btn">Launch Your Dashboard</a>
+    </center>
+</div>
+
+<p class="p">Thank you for choosing Padvault as your partner in property custody.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

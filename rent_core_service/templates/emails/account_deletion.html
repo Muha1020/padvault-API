@@ -1,0 +1,14 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Portfolio Closure.</div>
+
+<p class="p">Hello {{ name|default:"User" }},</p>
+<p class="p">This is an official confirmation that your Padvault account and all associated property data have been permanently removed from our systems, as per your recent request.</p>
+
+<p class="p">We are sorry to see you leave the network. Should your property management needs evolve, you are welcome to rejoin Padvault at any time.</p>
+
+<p class="p">Thank you for your time with us.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}

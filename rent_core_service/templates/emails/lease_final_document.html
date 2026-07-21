@@ -1,0 +1,19 @@
+{% extends "emails/base.html" %}
+
+{% block content %}
+<div class="h1">Lease Agreement Fully Executed</div>
+
+<p class="p">Congratulations! The tenancy agreement for <strong>{{ property_title }}</strong> has been successfully signed by both parties.</p>
+
+<p class="p">A formal digital copy of the fully executed lease agreement is now available for your records. You can download the PDF document at any time using the link below.</p>
+
+<div class="btn-container">
+    <center>
+        <a href="{{ document_url }}" class="btn">Download Signed Lease (PDF)</a>
+    </center>
+</div>
+
+<p class="p">We recommend keeping a copy of this document for your personal records.</p>
+
+<p class="p">Best regards,<br><strong>The Padvault Team</strong></p>
+{% endblock %}
